@@ -13,6 +13,10 @@
 ###### Volumes allows us to have persistent data in our containers. Bind Mount is a special kind of Volume in Docker because it allows us to sync a folder or a file system in the host machine to a folder in the docker container
 ### docker run -v pathToFolderOnHostMachine (absolute path or %cd% in windows cmd or ${pwd} in windows powershell or $(pwd) in linux or mac):pathToFolderOnContainer -p portOfHostMachine:portOfContainer -d --name ContainerName ImageName
 ###### nodemon not restarting inside docker -> nodemon -L index.js or nodemon --legacy-watch index.js
+#### docker ps -a (to show all running and exited containers)
+#### docker logs ContainerName
+###### To prevent local folder from overwriting /app directory and deleting node_modules folder due to Bind Mount volume, an anonymous volumes is to be created. All volumes in docker container are based off of specificity (since /app/node_modules is a longer path, it is more specific)
+### docker run -v pathToFolderOnHostMachine:/app -v /app/node_modules -p portOfHostMachine:portOfContainer -d --name ContainerName ImageName
 
 ### FROM node:18
 ### WORKDIR /app
@@ -21,4 +25,3 @@
 ### COPY . ./
 ### EXPOSE 3000
 ### CMD ["node", "index.js"] or CMD ["npm", "run", "dev"] for nodemon
-###### 45:30

@@ -17,6 +17,12 @@
 #### docker logs ContainerName
 ###### To prevent local folder from overwriting /app directory and deleting node_modules folder due to Bind Mount volume, an anonymous volumes is to be created. All volumes in docker container are based off of specificity (since /app/node_modules is a longer path, it is more specific)
 ### docker run -v pathToFolderOnHostMachine:/app -v /app/node_modules -p portOfHostMachine:portOfContainer -d --name ContainerName ImageName
+### docker run -v pathToFolderOnHostMachine:/app:ro (to make a read only bind mount so that the docker container cannot create any file on the localhost machine or change anything on our source code) -v /app/node_modules -p portOfHostMachine:portOfContainer -d --name ContainerName ImageName
+###### Linux commands
+###### cat (to read the contents of file)
+###### touch (to create an empty file)
+###### rm (to remove a file)
+###### ls (to show list of files)
 
 ### FROM node:18
 ### WORKDIR /app

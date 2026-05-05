@@ -1,7 +1,11 @@
 node_modules
 dist
+info
 .git
 Dockerfile
 README.md
 .env
 *.log
+.gitignore
+.env.example
+LICENSE

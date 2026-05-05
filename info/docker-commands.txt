@@ -1,0 +1,15 @@
+docker build .
+docker image ls (ls -> list)
+docker image ls -a (a -> all)
+docker image rm <image_id>
+docker build -t <image_name> .
+docker run -d --name <container_name> <image_name> (d -> detached mode)
+docker ps (ps -> process status)
+docker ps -a
+docker rm <container_name> -f (f -> force (in order to delete a container, first we need to stop it and then delete it. using -f does both.))
+docker run -p <port from which the traffic is coming from like a network or localhost>:<port on which the container is expecting the traffic or port that we are going to send the traffic on to the container> -d --name <container_name> <image_name>
+docker exec -it <container_name> bash (it -> interactive mode) (explore the file system of the docker container)
+docker buildx history ls
+docker buildx history rm --all (removes the Build Records)
+docker builder prune (removes only "dangling" build cache)
+cat <filename> (prints the context of the file)
